@@ -27,10 +27,13 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,7 +66,10 @@
               "buildTarget": "FitnessTracker:build:production"
             },
             "development": {
-              "buildTarget": "FitnessTracker:build:development"
+              "buildTarget": "FitnessTracker:build:development",
+              "ssl": false,
+              "sslCert": "server.crt",
+              "sslKey": "server.key"
             }
           },
           "defaultConfiguration": "development"
@@ -91,8 +97,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

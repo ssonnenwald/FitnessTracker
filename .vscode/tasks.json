@@ -21,6 +21,11 @@
       }
     },
     {
+      "label": "stop server",
+      "command": "echo ${input:terminate}",
+      "type": "shell"
+    },
+    {
       "type": "npm",
       "script": "test",
       "isBackground": true,
@@ -37,6 +42,14 @@
           }
         }
       }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "npm: start"
     }
   ]
 }
