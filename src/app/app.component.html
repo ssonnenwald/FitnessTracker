@@ -1,1 +1,41 @@
-<router-outlet></router-outlet>
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Fitbit - Web API
+
+  <div class="d-flex justify-content-end w-100">
+    <button mat-button (click)="login()">Login</button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /> -->
+
+    <h4 class="name">Web API</h4>
+    <p class="designation">Explorer</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/profile">
+      <mat-icon>chevron_right</mat-icon>
+      <span>getProfile</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <mat-icon>chevron_right</mat-icon>
+      <span>getFoodLog</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/about">
+      <mat-icon>chevron_right</mat-icon>
+      <span>About</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

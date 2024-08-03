@@ -17,7 +17,7 @@ export class RedirectUrlComponent implements OnInit {
 
   public ngOnInit(): void {
     this.authService.tryLoginCodeFlow().then(() => {
-      this.router.navigate(['data']);
+      this.router.navigate(['home']);
     });
   }
 }

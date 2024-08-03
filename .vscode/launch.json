@@ -9,6 +9,11 @@
       "preLaunchTask": "npm: start",
       "url": "http://localhost:4200/",
       "userDataDir": "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+      "webRoot": "${workspaceFolder}",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
       "sourceMaps": true,
       "postDebugTask": "stop server"
     },
