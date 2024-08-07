@@ -1,1 +1,14 @@
-<ag-grid-angular class="ag-theme-quartz w-100 h-100" [rowData]="fitbitData" [gridOptions]="gridOptions" />
+<div class="d-flex flex-column h-100">
+  <div class="d-flex flex-row">
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="datePicker" (dateChange)="dateChange($event)">
+      <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <ag-grid-angular class="d-flex flex-column ag-theme-quartz w-100 h-100" [rowData]="fitbitData"
+    [gridOptions]="gridOptions" />
+
+</div>

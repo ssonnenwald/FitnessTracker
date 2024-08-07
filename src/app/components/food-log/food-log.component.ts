@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDatepicker, MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
 import { map, takeUntil, tap } from 'rxjs';
@@ -11,12 +15,20 @@ import { OnDestroyBaseComponent } from '../on-destroy-base-component/on-destroy-
 @Component({
   selector: 'app-food-log',
   standalone: true,
-  imports: [CommonModule, AgGridAngular],
+  imports: [
+    CommonModule,
+    AgGridAngular,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+  ],
   templateUrl: './food-log.component.html',
   styleUrl: './food-log.component.css',
+  providers: [provideNativeDateAdapter()],
 })
 export class FoodLogComponent extends OnDestroyBaseComponent implements OnInit {
-  public fitbitData: string | any = '';
+  @ViewChild('datePicker') public datePicker: MatDatepicker<any> | undefined;
+  public fitbitData: any = [];
   private fitbitService: FitbitService = inject(FitbitService);
 
   public gridOptions: GridOptions = {
@@ -65,8 +77,12 @@ export class FoodLogComponent extends OnDestroyBaseComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    console.log('ngOnInit');
+  }
+
+  public dateChange(event: MatDatepickerInputEvent<any>): void {
     this.fitbitService
-      .getFoodLog('2024-08-02')
+      .getFoodLog(event.value.toISOString().slice(0, 10))
       .pipe(
         tap((data) => console.log(data)),
         map((data) =>

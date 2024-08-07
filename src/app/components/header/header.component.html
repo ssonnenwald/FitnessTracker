@@ -1,0 +1,15 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button class="hamburger-button" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+
+  <div class="d-flex justify-content-start w-100 ms-3">
+    Fitbit - Web API
+  </div>
+
+  <div class="d-flex justify-content-end w-100">
+    <button *ngIf="!isLoggedIn" mat-button (click)="login()" class="login-button">Login</button>
+    <button *ngIf="isLoggedIn" mat-button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+</mat-toolbar>

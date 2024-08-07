@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   public isLoggedIn(): Observable<boolean> {
-    return of(this.oauthService.hasValidIdToken());
+    return of(this.oauthService.hasValidAccessToken());
   }
 
   public getAccessToken(): string {

@@ -1,14 +1,4 @@
-<mat-toolbar class="mat-elevation-z8">
-  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
-  Fitbit - Web API
-
-  <div class="d-flex justify-content-end w-100">
-    <button mat-button (click)="login()">Login</button>
-  </div>
-</mat-toolbar>
+<app-header [sidenav]="sidenav"></app-header>
 
 <mat-sidenav-container autosize>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
@@ -19,19 +9,77 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button" routerLink="/profile">
+    <!-- <button mat-button class="menu-button" routerLink="/profile">
       <mat-icon>chevron_right</mat-icon>
       <span>getProfile</span>
+    </button> -->
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Dashboard</span>
     </button>
 
     <button mat-button class="menu-button" routerLink="/food-log">
-      <mat-icon>chevron_right</mat-icon>
-      <span>getFoodLog</span>
+      <span class="text-nowrap">Food Log By Date</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/about">
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Activity + Stats</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Calories In vs Out</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Food Plan</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Friends</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Goals</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Premium</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Recent Exercise</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Resting Heart Rate</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Sleep</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">This Week's Activity</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Top Badges</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Water</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/food-log">
+      <span class="text-nowrap">Weight</span>
+    </button>
+
+
+
+    <!-- <button mat-button class="menu-button" routerLink="/about">
       <mat-icon>chevron_right</mat-icon>
       <span>About</span>
-    </button>
+    </button> -->
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z8">
