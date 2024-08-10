@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DataComponent } from './components/data/data.component';
 import { FoodLogComponent } from './components/food-log/food-log.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'data', component: DataComponent },
   { path: 'redirect', component: RedirectUrlComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'food-log', component: FoodLogComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: 'home' },
